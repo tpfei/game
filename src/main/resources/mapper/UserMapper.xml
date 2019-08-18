@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.huawei.game.mapper.UserMapper">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="org.huawei.game.model.User" id="userItems">
+
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <id column="groupid" property="groupId" jdbcType="INTEGER" />
+        <id column="topgroup" property="topGroup" jdbcType="INTEGER" />
+        <id column="energy" property="energy" jdbcType="INTEGER" />
+        <id column="sum_score" property="sumScore" jdbcType="INTEGER" />
+        <id column="sum_score_rank" property="sumScoreRank" jdbcType="INTEGER" />
+        <id column="week_score" property="weekScore" jdbcType="INTEGER" />
+        <id column="week_score_rank" property="weekScoreRank" jdbcType="INTEGER" />
+        <id column="sign_count" property="signCount" jdbcType="INTEGER" />
+        <id column="sign_score" property="signScore" jdbcType="INTEGER" />
+        <id column="task_lvl" property="taskLvl" jdbcType="INTEGER" />
+        <id column="task_count" property="taskCount" jdbcType="INTEGER" />
+        <id column="task_score" property="taskScore" jdbcType="INTEGER" />
+        <id column="pk_count" property="pkCount" jdbcType="INTEGER" />
+        <id column="pk_score" property="pkScore" jdbcType="INTEGER" />
+        <id column="pk_win" property="pkWin" jdbcType="INTEGER" />
+        <id column="pk_lose" property="pkLost" jdbcType="INTEGER" />
+        <id column="created_at" property="createdAt" jdbcType="INTEGER" />
+        <id column="update_at" property="updateAt" jdbcType="INTEGER" />
+        <id column="online_at" property="onlineAt" jdbcType="INTEGER" />
+        <id column="status" property="status" jdbcType="INTEGER" />
+        <result column="groups" property="groups" jdbcType="VARCHAR" />
+        <result column="username" property="userName" jdbcType="VARCHAR" />
+        <result column="mobile" property="mobile" jdbcType="INTEGER" />
+        <result column="email" property="email" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select id="getUserById" parameterType="INTEGER" resultMap="userItems">
+        select *
+        from users
+        where id = #{id}
+    </select>
+
+    <select id="getAllUser" resultType="org.huawei.game.model.User">
+        select * from users
+    </select>
+
+</mapper>
